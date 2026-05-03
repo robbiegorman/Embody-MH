@@ -1,0 +1,856 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Embody Mental Health | Trauma-Informed Consultation</title>
+  <meta name="description" content="Trauma-informed training and consultation for medical, dental, and service-based teams. Build safer, clearer, more supportive experiences for patients, clients, and staff." />
+  <style>
+    :root {
+      --cream: #f7f2e8;
+      --cream-2: #efe5d7;
+      --warm-white: #fffdf8;
+      --sage: #7f937e;
+      --sage-dark: #3d4f43;
+      --sage-soft: #dfe7dc;
+      --clay: #b98169;
+      --clay-soft: #ead1c3;
+      --sand: #d9c5a9;
+      --ink: #2d332f;
+      --muted: #6d756e;
+      --line: rgba(61, 79, 67, 0.18);
+      --shadow: 0 18px 45px rgba(61, 79, 67, 0.10);
+      --radius: 26px;
+      --max: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background: var(--cream);
+      color: var(--ink);
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      line-height: 1.7;
+      font-size: 16px;
+    }
+
+    a { color: inherit; }
+
+    .skip-link {
+      position: absolute;
+      left: -999px;
+      top: 10px;
+      background: var(--sage-dark);
+      color: white;
+      padding: 10px 14px;
+      border-radius: 999px;
+      z-index: 100;
+    }
+    .skip-link:focus { left: 12px; }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(247, 242, 232, 0.94);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav {
+      width: min(var(--max), calc(100% - 36px));
+      margin: 0 auto;
+      min-height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 22px;
+    }
+
+    .brand {
+      text-decoration: none;
+      display: inline-flex;
+      flex-direction: column;
+      line-height: 1.05;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--sage-dark);
+    }
+
+    .brand strong {
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: 500;
+      font-size: 1.45rem;
+      letter-spacing: 0.08em;
+    }
+
+    .brand span {
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      color: var(--sage-dark);
+      font-size: 0.92rem;
+      letter-spacing: 0.04em;
+    }
+
+    nav a { text-decoration: none; }
+    nav a:hover, nav a:focus { color: var(--clay); }
+
+    .menu-button {
+      display: none;
+      border: 1px solid var(--line);
+      background: var(--warm-white);
+      color: var(--sage-dark);
+      padding: 9px 13px;
+      border-radius: 999px;
+      font-weight: 700;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 46px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      padding: 12px 22px;
+      text-decoration: none;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      cursor: pointer;
+      transition: all 0.18s ease;
+      white-space: nowrap;
+    }
+
+    .button:hover, .button:focus {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 28px rgba(61, 79, 67, 0.16);
+    }
+
+    .button.primary {
+      background: var(--sage-dark);
+      color: white;
+    }
+
+    .button.secondary {
+      background: var(--warm-white);
+      color: var(--sage-dark);
+      border-color: var(--line);
+    }
+
+    .button.text {
+      background: transparent;
+      color: var(--sage-dark);
+      border-color: var(--sage);
+    }
+
+    main section { padding: 84px 0; }
+
+    .container {
+      width: min(var(--max), calc(100% - 36px));
+      margin: 0 auto;
+    }
+
+    h1, h2, h3 {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: 500;
+      color: var(--sage-dark);
+      line-height: 1.08;
+    }
+
+    h1 {
+      font-size: clamp(3rem, 7vw, 6.4rem);
+      letter-spacing: -0.045em;
+      max-width: 980px;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 4vw, 4rem);
+      letter-spacing: -0.035em;
+      max-width: 920px;
+    }
+
+    h3 {
+      font-size: 1.45rem;
+      letter-spacing: -0.015em;
+    }
+
+    p { margin: 0; color: var(--muted); }
+
+    .eyebrow {
+      font-size: 0.78rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--clay);
+      font-weight: 800;
+      margin-bottom: 16px;
+    }
+
+    .lede, .section-lede {
+      font-size: clamp(1.08rem, 2vw, 1.32rem);
+      max-width: 760px;
+      margin-top: 22px;
+    }
+
+    .hero {
+      min-height: calc(100vh - 82px);
+      display: flex;
+      align-items: center;
+      padding: 72px 0;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.02fr) minmax(340px, 0.78fr);
+      gap: 54px;
+      align-items: center;
+    }
+
+    .hero-actions {
+      margin-top: 34px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .soft-image {
+      min-height: 560px;
+      border-radius: 44% 44% 18% 18% / 36% 36% 16% 16%;
+      background:
+        linear-gradient(rgba(61, 79, 67, 0.05), rgba(61, 79, 67, 0.05)),
+        radial-gradient(circle at 35% 22%, rgba(255, 255, 255, 0.9), transparent 24%),
+        linear-gradient(135deg, var(--sage-soft), var(--clay-soft) 58%, var(--cream-2));
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(255, 255, 255, 0.65);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .soft-image::before,
+    .soft-image::after {
+      content: "";
+      position: absolute;
+      border-radius: 999px;
+      background: rgba(255, 253, 248, 0.72);
+    }
+
+    .soft-image::before {
+      width: 210px;
+      height: 210px;
+      right: -54px;
+      top: 72px;
+    }
+
+    .soft-image::after {
+      width: 260px;
+      height: 260px;
+      left: -75px;
+      bottom: 38px;
+      background: rgba(127, 147, 126, 0.22);
+    }
+
+    .image-caption {
+      position: absolute;
+      left: 32px;
+      right: 32px;
+      bottom: 32px;
+      background: rgba(255, 253, 248, 0.84);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      border-radius: 22px;
+      padding: 22px;
+      color: var(--sage-dark);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.26rem;
+      line-height: 1.35;
+    }
+
+    .service-strip {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 44px;
+    }
+
+    .service-pill {
+      background: var(--warm-white);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 15px 18px;
+      text-align: center;
+      color: var(--sage-dark);
+      font-weight: 700;
+      box-shadow: 0 8px 24px rgba(61, 79, 67, 0.05);
+    }
+
+    .intro-block {
+      background: var(--warm-white);
+      border-radius: 34px;
+      border: 1px solid var(--line);
+      padding: clamp(28px, 5vw, 58px);
+      box-shadow: var(--shadow);
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: minmax(0, 0.88fr) minmax(0, 1.12fr);
+      gap: 48px;
+      align-items: start;
+    }
+
+    .quiet-list {
+      display: grid;
+      gap: 16px;
+      margin-top: 8px;
+    }
+
+    .quiet-item {
+      padding: 18px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .quiet-item strong {
+      display: block;
+      color: var(--sage-dark);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.25rem;
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+      margin-top: 36px;
+    }
+
+    .card {
+      background: var(--warm-white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 28px;
+      min-height: 100%;
+      box-shadow: 0 12px 35px rgba(61, 79, 67, 0.06);
+    }
+
+    .card .tag {
+      display: block;
+      color: var(--clay);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      font-weight: 800;
+      font-size: 0.72rem;
+      margin-bottom: 18px;
+    }
+
+    .card p { margin-top: 12px; }
+
+    .sage-section {
+      background: var(--sage-dark);
+      color: white;
+    }
+
+    .sage-section h2,
+    .sage-section h3 { color: white; }
+    .sage-section p { color: rgba(255,255,255,0.76); }
+    .sage-section .eyebrow { color: var(--clay-soft); }
+    .sage-section .card {
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(255,255,255,0.14);
+      box-shadow: none;
+    }
+    .sage-section .card .tag { color: var(--clay-soft); }
+
+    .audit-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+      gap: 34px;
+      align-items: start;
+    }
+
+    .include-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .include {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.16);
+      border-radius: 18px;
+      padding: 15px;
+      color: rgba(255,255,255,0.86);
+      font-weight: 700;
+    }
+
+    .approach-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+      margin-top: 36px;
+    }
+
+    .approach-card {
+      background: var(--warm-white);
+      border-radius: var(--radius);
+      padding: 30px;
+      border: 1px solid var(--line);
+    }
+
+    .approach-number {
+      width: 42px;
+      height: 42px;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      background: var(--sage-soft);
+      color: var(--sage-dark);
+      font-weight: 800;
+      margin-bottom: 18px;
+    }
+
+    .quote-band {
+      text-align: center;
+      padding: 92px 18px;
+      background: var(--cream-2);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .quote-band blockquote {
+      margin: 0 auto;
+      max-width: 850px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2rem, 4vw, 4rem);
+      line-height: 1.15;
+      color: var(--sage-dark);
+    }
+
+    .quote-band cite {
+      display: block;
+      margin-top: 18px;
+      color: var(--clay);
+      font-style: normal;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-weight: 800;
+      font-size: 0.78rem;
+    }
+
+    .resource {
+      background: var(--warm-white);
+      border: 1px solid var(--line);
+      border-radius: 34px;
+      padding: clamp(28px, 5vw, 56px);
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(320px, 0.82fr);
+      gap: 40px;
+      box-shadow: var(--shadow);
+    }
+
+    form {
+      display: grid;
+      gap: 14px;
+      background: var(--cream);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 24px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--sage-dark);
+      font-weight: 800;
+      font-size: 0.92rem;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      font: inherit;
+      border: 1px solid var(--line);
+      background: var(--warm-white);
+      color: var(--ink);
+      border-radius: 16px;
+      padding: 13px 14px;
+    }
+
+    textarea { min-height: 120px; resize: vertical; }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .note {
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-top: 12px;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: minmax(300px, 0.82fr) minmax(0, 1.18fr);
+      gap: 46px;
+      align-items: center;
+    }
+
+    .about-art {
+      min-height: 420px;
+      border-radius: 40px;
+      background:
+        radial-gradient(circle at 70% 16%, rgba(255,253,248,0.8), transparent 23%),
+        linear-gradient(145deg, var(--clay-soft), var(--sage-soft));
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      display: grid;
+      place-items: center;
+      padding: 30px;
+      text-align: center;
+      color: var(--sage-dark);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.3rem;
+    }
+
+    .scope {
+      margin-top: 24px;
+      background: var(--cream-2);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 20px;
+      color: var(--muted);
+    }
+
+    footer {
+      background: var(--sage-dark);
+      color: rgba(255,255,255,0.82);
+      padding: 54px 0;
+    }
+
+    .footer-grid {
+      width: min(var(--max), calc(100% - 36px));
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) repeat(2, minmax(180px, 0.4fr));
+      gap: 34px;
+    }
+
+    footer h3 {
+      color: white;
+      font-size: 1.35rem;
+      margin-bottom: 12px;
+    }
+
+    footer a { color: white; text-decoration: none; }
+    footer a:hover, footer a:focus { text-decoration: underline; }
+
+    .footer-links {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 8px;
+    }
+
+    .mobile-only { display: none; }
+
+    @media (max-width: 960px) {
+      .desktop-cta { display: none; }
+      .menu-button { display: inline-flex; }
+      nav ul { display: none; }
+      nav[data-open="true"] ul {
+        position: absolute;
+        top: 82px;
+        left: 18px;
+        right: 18px;
+        display: grid;
+        gap: 14px;
+        background: var(--warm-white);
+        border: 1px solid var(--line);
+        border-radius: 24px;
+        padding: 20px;
+        box-shadow: var(--shadow);
+      }
+      .mobile-only { display: inline-flex; }
+      .hero-grid,
+      .split,
+      .audit-grid,
+      .resource,
+      .about-grid,
+      .footer-grid { grid-template-columns: 1fr; }
+      .soft-image { min-height: 420px; }
+      .cards,
+      .approach-grid,
+      .service-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 640px) {
+      main section { padding: 62px 0; }
+      .nav { min-height: 74px; }
+      nav[data-open="true"] ul { top: 74px; }
+      .hero { min-height: auto; padding: 56px 0; }
+      h1 { font-size: clamp(2.6rem, 14vw, 4.5rem); }
+      .cards,
+      .approach-grid,
+      .service-strip,
+      .include-grid,
+      .two-col { grid-template-columns: 1fr; }
+      .soft-image { min-height: 340px; border-radius: 34px; }
+      .image-caption { left: 18px; right: 18px; bottom: 18px; }
+      .brand strong { font-size: 1.15rem; }
+      .brand span { font-size: 0.62rem; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header>
+    <div class="nav">
+      <a href="#top" class="brand" aria-label="Embody Mental Health home">
+        <strong>Embody</strong>
+        <span>Mental Health</span>
+      </a>
+
+      <nav id="site-nav" aria-label="Primary navigation" data-open="false">
+        <button class="menu-button" type="button" aria-controls="menu-list" aria-expanded="false">Menu</button>
+        <ul id="menu-list">
+          <li><a href="#who">Who We Serve</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#audit">Experience Audit</a></li>
+          <li><a href="#approach">Our Approach</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a class="button primary mobile-only" href="#contact">Schedule A Consultation</a></li>
+        </ul>
+      </nav>
+
+      <a class="button primary desktop-cta" href="#contact">Schedule A Consultation</a>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Consultation for medical, dental & service teams</div>
+          <h1>You don’t have to build trauma-informed systems alone.</h1>
+          <p class="lede">Embody Mental Health helps care-centered organizations create safer, clearer, and more supportive experiences for patients, clients, and staff through trauma-informed training, consultation, and practical implementation support.</p>
+          <div class="hero-actions">
+            <a class="button primary" href="#contact">Schedule A Consultation</a>
+            <a class="button secondary" href="#audit">Explore The Audit</a>
+          </div>
+          <div class="service-strip" aria-label="Consulting audiences">
+            <div class="service-pill">Dental practices</div>
+            <div class="service-pill">Medical clinics</div>
+            <div class="service-pill">Service organizations</div>
+            <div class="service-pill">Public-facing teams</div>
+          </div>
+        </div>
+
+        <div class="soft-image" role="img" aria-label="Soft abstract image representing a calm consultation space">
+          <div class="image-caption">Start your journey toward safer care, clearer communication, and more sustainable support for your team.</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="problem">
+      <div class="container intro-block split">
+        <div>
+          <div class="eyebrow">Why this work matters</div>
+          <h2>Compassionate teams still need clear systems.</h2>
+          <p class="section-lede">Your team may care deeply about the people you serve. But without shared practices, staff can be left guessing how to respond when patients or clients are anxious, angry, avoidant, ashamed, overwhelmed, or shut down.</p>
+        </div>
+        <div class="quiet-list">
+          <div class="quiet-item"><strong>Patients and clients need predictability.</strong><p>Clear communication, consent, and choice can reduce unnecessary fear and confusion.</p></div>
+          <div class="quiet-item"><strong>Staff need support, not just resilience.</strong><p>Emotionally demanding work requires supervision, role clarity, debriefing, and practical tools.</p></div>
+          <div class="quiet-item"><strong>Boundaries can be healing.</strong><p>Trauma-informed practice does not mean saying yes to everything. Dignified limits can increase trust and safety.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="who">
+      <div class="container">
+        <div class="eyebrow">Who we serve</div>
+        <h2>Built for settings where trust, safety, and communication shape the experience of care.</h2>
+        <div class="cards">
+          <article class="card"><span class="tag">Dental</span><h3>Dental practices</h3><p>Support anxious patients, reduce shame around delayed care, and create more predictable chairside communication.</p></article>
+          <article class="card"><span class="tag">Medical</span><h3>Healthcare teams</h3><p>Strengthen consent-centered communication, patient trust, and staff confidence during vulnerable care moments.</p></article>
+          <article class="card"><span class="tag">Service</span><h3>Nonprofits & public-facing teams</h3><p>Build clearer boundaries, de-escalation practices, supervision rhythms, and sustainable service delivery.</p></article>
+          <article class="card"><span class="tag">Youth</span><h3>Schools & youth-serving organizations</h3><p>Respond to dysregulation, family stress, and staff burnout with more consistency and support.</p></article>
+          <article class="card"><span class="tag">Community</span><h3>Faith & community organizations</h3><p>Support people through grief, crisis, and transition without becoming a substitute for therapy.</p></article>
+          <article class="card"><span class="tag">Leadership</span><h3>Managers & supervisors</h3><p>Help leaders respond humanely and appropriately while maintaining role clarity and healthy boundaries.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="sage-section" id="services">
+      <div class="container">
+        <div class="eyebrow">Services</div>
+        <h2>Training and consultation that move from awareness to daily practice.</h2>
+        <p class="section-lede">The goal is not to turn staff into therapists. The goal is to help teams build safer, clearer, and more consistent ways of communicating, responding, and supporting one another.</p>
+        <div class="cards">
+          <article class="card"><span class="tag">01</span><h3>Workshops & team training</h3><p>Practical, role-specific training on communication, consent, boundaries, de-escalation, and patient/client support.</p></article>
+          <article class="card"><span class="tag">02</span><h3>Experience audits</h3><p>A focused review of your patient, client, or staff experience to identify where systems support safety, trust, choice, and clarity.</p></article>
+          <article class="card"><span class="tag">03</span><h3>Implementation sprints</h3><p>A deeper engagement that turns recommendations into scripts, workflows, supervision practices, and a 30/60/90-day action plan.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="sage-section" id="audit" style="padding-top: 0;">
+      <div class="container audit-grid">
+        <div>
+          <div class="eyebrow">Signature offer</div>
+          <h2>Trauma-Informed Experience Audit</h2>
+          <p class="section-lede">The audit helps your team understand how patients, clients, and staff experience your organization from first contact through follow-up. We review communication, forms, workflows, handoffs, boundaries, escalation points, and staff support practices, then provide recommendations your team can act on.</p>
+          <div class="hero-actions">
+            <a class="button secondary" href="#contact">Ask About An Audit</a>
+            <a class="button text" style="color:white; border-color:rgba(255,255,255,.55);" href="#resource">Request The Checklist</a>
+          </div>
+        </div>
+        <div class="include-grid">
+          <div class="include">Leadership intake</div>
+          <div class="include">Staff pulse survey</div>
+          <div class="include">Document and workflow review</div>
+          <div class="include">Patient/client journey mapping</div>
+          <div class="include">Strengths and gaps summary</div>
+          <div class="include">Practical recommendations</div>
+          <div class="include">30/60/90-day roadmap</div>
+          <div class="include">Leadership debrief</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="approach">
+      <div class="container">
+        <div class="eyebrow">Our approach</div>
+        <h2>Trauma-informed practice is not just about being kinder. It is about designing better systems.</h2>
+        <div class="approach-grid">
+          <article class="approach-card"><div class="approach-number">1</div><h3>Safety and clarity</h3><p>People need to know what to expect, what choices they have, and what happens next.</p></article>
+          <article class="approach-card"><div class="approach-number">2</div><h3>Boundaries with dignity</h3><p>Clear limits can reduce escalation, protect staff, and preserve dignity for the person receiving care.</p></article>
+          <article class="approach-card"><div class="approach-number">3</div><h3>Systems, not just scripts</h3><p>Durable change requires workflows, handoffs, supervision, feedback loops, and leadership alignment.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="quote-band" aria-label="Brand quote">
+      <blockquote>“The best way out, is always through”</blockquote>
+      <cite>Robert Frost</cite>
+    </section>
+
+    <section id="resource">
+      <div class="container resource">
+        <div>
+          <div class="eyebrow">Free resource</div>
+          <h2>Trauma-Informed Practice Starter Checklist</h2>
+          <p class="section-lede">A practical self-assessment for healthcare, dental, and service-based teams. Use it to identify where your current practices support safety, trust, choice, clarity, and staff sustainability.</p>
+          <p class="note">This form is set up for Netlify Forms. If you host on GitHub Pages, connect it to Formspree, Tally, HubSpot, or another form service.</p>
+        </div>
+        <form name="checklist-download" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="checklist-download" />
+          <p style="display:none"><label>Don’t fill this out: <input name="bot-field" /></label></p>
+          <div><label for="resource-name">Name</label><input id="resource-name" name="name" autocomplete="name" required /></div>
+          <div><label for="resource-email">Email</label><input id="resource-email" name="email" type="email" autocomplete="email" required /></div>
+          <div><label for="resource-org">Organization / Practice</label><input id="resource-org" name="organization" autocomplete="organization" /></div>
+          <button class="button primary" type="submit">Request The Checklist</button>
+        </form>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container about-grid">
+        <div class="about-art">Add a photo from the Embody office, a team image, or a calming brand graphic here.</div>
+        <div>
+          <div class="eyebrow">About this consultation practice</div>
+          <h2>Clinical insight translated into organizational practice.</h2>
+          <p class="section-lede">Embody Mental Health brings trauma-informed insight into organizational settings without providing therapy to staff, patients, or clients. This consultation work focuses on training, systems design, communication, supervision, boundaries, and practical implementation.</p>
+          <div class="scope"><strong>Scope note:</strong> Services are educational and consultative in nature. They do not constitute psychotherapy, diagnosis, treatment, crisis intervention, clinical supervision, legal advice, or medical advice.</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container intro-block split">
+        <div>
+          <div class="eyebrow">Ready to start?</div>
+          <h2>Schedule a consultation.</h2>
+          <p class="section-lede">Reach out to explore whether a workshop, audit, or implementation sprint is the right next step for your team.</p>
+          <p class="note">Replace the placeholder form destination or connect the form in Netlify before publishing.</p>
+        </div>
+        <form name="consultation-request" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="consultation-request" />
+          <p style="display:none"><label>Don’t fill this out: <input name="bot-field" /></label></p>
+          <div class="two-col">
+            <div><label for="name">Name</label><input id="name" name="name" autocomplete="name" required /></div>
+            <div><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" required /></div>
+          </div>
+          <div><label for="organization">Organization / Practice</label><input id="organization" name="organization" autocomplete="organization" /></div>
+          <div><label for="sector">What best describes your setting?</label><select id="sector" name="sector"><option>Dental practice</option><option>Medical / healthcare practice</option><option>Nonprofit / service organization</option><option>School / youth-serving organization</option><option>Faith / community organization</option><option>Other</option></select></div>
+          <div><label for="message">What are you hoping to improve?</label><textarea id="message" name="message" placeholder="Tell us a little about your team, patients/clients, and what prompted your interest."></textarea></div>
+          <button class="button primary" type="submit">Request A Consultation</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <h3>Embody Mental Health</h3>
+        <p>148 South Northwest Highway Suite 202<br />Barrington, IL 60010</p>
+        <p style="margin-top:12px;">Phone: 224-310-9663<br />info@embodymentalhealth.com</p>
+      </div>
+      <div>
+        <h3>Resources</h3>
+        <ul class="footer-links">
+          <li><a href="#services">Services</a></li>
+          <li><a href="#audit">Experience Audit</a></li>
+          <li><a href="#approach">Our Approach</a></li>
+          <li><a href="#resource">Starter Checklist</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Connect</h3>
+        <ul class="footer-links">
+          <li><a href="#contact">Contact us</a></li>
+          <li><a href="https://www.embodymentalhealth.com/" rel="noopener">Main website</a></li>
+          <li><a href="#top">Back to top</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const nav = document.querySelector('#site-nav');
+    const toggle = document.querySelector('.menu-button');
+
+    toggle?.addEventListener('click', () => {
+      const isOpen = nav.getAttribute('data-open') === 'true';
+      nav.setAttribute('data-open', String(!isOpen));
+      toggle.setAttribute('aria-expanded', String(!isOpen));
+    });
+
+    document.querySelectorAll('nav a').forEach((link) => {
+      link.addEventListener('click', () => {
+        nav.setAttribute('data-open', 'false');
+        toggle?.setAttribute('aria-expanded', 'false');
+      });
+    });
+  </script>
+</body>
+</html>
