@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Trauma-Informed Consulting for Healthcare, Dental & Service Teams</title>
+  <meta name="description" content="Trauma-informed training and consulting for healthcare, dental, and service-based teams. Build safer, clearer, more trustworthy experiences for patients, clients, and staff." />
+  <style>
+    :root {
+      --bg: #f8f5ef;
+      --surface: #ffffff;
+      --surface-soft: #f1ebe2;
+      --ink: #1f2933;
+      --muted: #5f6c7b;
+      --line: #ded6cb;
+      --accent: #48665f;
+      --accent-dark: #2f4742;
+      --accent-soft: #dce8e5;
+      --gold: #b88746;
+      --gold-soft: #f0dec1;
+      --danger-soft: #f7e7df;
+      --shadow: 0 18px 45px rgba(31, 41, 51, 0.10);
+      --radius-lg: 28px;
+      --radius-md: 18px;
+      --radius-sm: 12px;
+      --max: 1160px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.6;
+    }
+    a { color: inherit; }
+    .skip-link {
+      position: absolute; left: -999px; top: 12px; background: var(--accent-dark); color: white;
+      padding: 10px 14px; border-radius: 10px; z-index: 100;
+    }
+    .skip-link:focus { left: 12px; }
+    header {
+      position: sticky; top: 0; z-index: 50; background: rgba(248, 245, 239, 0.94);
+      backdrop-filter: blur(12px); border-bottom: 1px solid rgba(222, 214, 203, 0.8);
+    }
+    .nav {
+      width: min(var(--max), calc(100% - 36px)); margin: 0 auto; display: flex; align-items: center;
+      justify-content: space-between; gap: 20px; padding: 16px 0;
+    }
+    .brand { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; font-weight: 800; letter-spacing: -0.02em; }
+    .brand-mark {
+      width: 40px; height: 40px; border-radius: 14px; background: linear-gradient(135deg, var(--accent), var(--gold));
+      display: grid; place-items: center; color: white; font-weight: 900;
+    }
+    .brand span:last-child { max-width: 220px; line-height: 1.15; }
+    nav ul { list-style: none; display: flex; align-items: center; gap: 22px; padding: 0; margin: 0; color: var(--muted); font-weight: 650; font-size: 0.95rem; }
+    nav a { text-decoration: none; }
+    nav a:hover, nav a:focus { color: var(--accent-dark); }
+    .mobile-toggle { display: none; border: 1px solid var(--line); background: var(--surface); border-radius: 12px; padding: 9px 11px; font-weight: 700; }
+    .button {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px; border-radius: 999px;
+      padding: 12px 18px; font-weight: 800; text-decoration: none; border: 1px solid transparent; cursor: pointer;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease; white-space: nowrap;
+    }
+    .button:hover, .button:focus { transform: translateY(-1px); box-shadow: 0 12px 24px rgba(31, 41, 51, 0.12); }
+    .button.primary { background: var(--accent-dark); color: white; }
+    .button.secondary { background: var(--surface); color: var(--accent-dark); border-color: var(--line); }
+    .button.ghost { background: transparent; color: var(--accent-dark); border-color: var(--accent); }
+    main section { padding: 82px 0; }
+    .container { width: min(var(--max), calc(100% - 36px)); margin: 0 auto; }
+    .hero { padding: 88px 0 70px; position: relative; overflow: hidden; }
+    .hero::before {
+      content: ""; position: absolute; inset: -160px -140px auto auto; width: 520px; height: 520px;
+      background: radial-gradient(circle, rgba(184, 135, 70, 0.22), rgba(184, 135, 70, 0)); pointer-events: none;
+    }
+    .hero-grid { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(300px, 0.9fr); gap: 46px; align-items: center; }
+    .eyebrow {
+      display: inline-flex; gap: 8px; align-items: center; background: var(--accent-soft); color: var(--accent-dark);
+      border: 1px solid rgba(72, 102, 95, 0.18); border-radius: 999px; padding: 8px 12px; font-size: 0.88rem;
+      font-weight: 800; margin-bottom: 20px;
+    }
+    h1, h2, h3 { line-height: 1.08; margin: 0; letter-spacing: -0.04em; }
+    h1 { font-size: clamp(2.5rem, 6vw, 5.55rem); max-width: 900px; }
+    h2 { font-size: clamp(2rem, 4vw, 3.5rem); max-width: 860px; }
+    h3 { font-size: 1.35rem; }
+    .hero p.lede, .section-lede { font-size: clamp(1.08rem, 2vw, 1.32rem); color: var(--muted); max-width: 760px; margin: 22px 0 0; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+    .hero-card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-lg); padding: 28px; box-shadow: var(--shadow); }
+    .hero-card h2 { font-size: 1.55rem; margin-bottom: 18px; }
+    .check-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 13px; }
+    .check-list li { display: grid; grid-template-columns: 26px 1fr; gap: 10px; align-items: start; color: var(--muted); }
+    .check { width: 24px; height: 24px; border-radius: 50%; background: var(--accent-soft); color: var(--accent-dark); display: grid; place-items: center; font-weight: 900; line-height: 1; }
+    .logo-strip { margin-top: 34px; color: var(--muted); font-size: 0.95rem; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+    .pill { border: 1px solid var(--line); background: rgba(255, 255, 255, 0.6); border-radius: 999px; padding: 7px 11px; font-weight: 750; }
+    .split { display: grid; grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr); gap: 42px; align-items: start; }
+    .surface { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-lg); box-shadow: var(--shadow); padding: 32px; }
+    .cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; margin-top: 34px; }
+    .card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-md); padding: 24px; min-height: 100%; }
+    .card .tag { display: inline-flex; background: var(--surface-soft); color: var(--accent-dark); border-radius: 999px; padding: 6px 10px; font-size: 0.78rem; font-weight: 850; margin-bottom: 14px; text-transform: uppercase; letter-spacing: 0.06em; }
+    .card p, .surface p { color: var(--muted); margin: 12px 0 0; }
+    .problem-list { display: grid; gap: 12px; margin-top: 26px; }
+    .problem-item { display: grid; grid-template-columns: 34px 1fr; gap: 12px; background: rgba(255, 255, 255, 0.62); border: 1px solid var(--line); border-radius: var(--radius-sm); padding: 14px; color: var(--muted); }
+    .problem-icon { width: 34px; height: 34px; border-radius: 12px; background: var(--danger-soft); display: grid; place-items: center; font-weight: 900; color: var(--gold); }
+    .highlight { background: linear-gradient(135deg, var(--accent-dark), #52756d); color: white; border-radius: var(--radius-lg); padding: 44px; display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: 28px; align-items: center; }
+    .highlight p, .highlight li { color: rgba(255, 255, 255, 0.82); }
+    .highlight .button.secondary { background: white; color: var(--accent-dark); }
+    .service-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; margin-top: 34px; }
+    .service-card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-md); padding: 22px; }
+    .service-number { width: 38px; height: 38px; border-radius: 14px; display: grid; place-items: center; background: var(--accent-soft); color: var(--accent-dark); font-weight: 900; margin-bottom: 16px; }
+    .audit-includes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 22px; }
+    .mini { background: rgba(255, 255, 255, 0.12); border: 1px solid rgba(255, 255, 255, 0.18); border-radius: 14px; padding: 12px 14px; font-weight: 700; }
+    .framework { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; margin-top: 34px; }
+    .framework-card { border-top: 5px solid var(--accent); background: var(--surface); border-radius: var(--radius-md); padding: 24px; box-shadow: 0 10px 30px rgba(31, 41, 51, 0.06); }
+    .use-cases { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; margin-top: 34px; }
+    .resource-box { background: var(--gold-soft); border-radius: var(--radius-lg); padding: 36px; display: grid; grid-template-columns: minmax(0, 1fr) 370px; gap: 32px; align-items: center; border: 1px solid rgba(184, 135, 70, 0.25); }
+    form { background: var(--surface); padding: 22px; border-radius: var(--radius-md); border: 1px solid var(--line); }
+    label { display: block; font-weight: 800; margin: 0 0 6px; font-size: 0.92rem; }
+    input, textarea, select { width: 100%; border: 1px solid var(--line); border-radius: 12px; padding: 12px 13px; font: inherit; color: var(--ink); background: #fff; }
+    textarea { min-height: 120px; resize: vertical; }
+    .form-grid { display: grid; gap: 14px; }
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .note { font-size: 0.88rem; color: var(--muted); margin-top: 10px; }
+    .about-grid { display: grid; grid-template-columns: minmax(280px, 0.75fr) minmax(0, 1.25fr); gap: 34px; align-items: start; }
+    .portrait-placeholder { min-height: 360px; border-radius: var(--radius-lg); background: linear-gradient(135deg, rgba(72, 102, 95, 0.22), rgba(184, 135, 70, 0.20)), repeating-linear-gradient(45deg, rgba(255,255,255,0.45) 0, rgba(255,255,255,0.45) 8px, transparent 8px, transparent 16px); border: 1px solid var(--line); display: grid; place-items: center; padding: 24px; text-align: center; color: var(--accent-dark); font-weight: 850; }
+    .scope { background: var(--surface-soft); border: 1px solid var(--line); border-radius: var(--radius-md); padding: 22px; color: var(--muted); font-size: 0.98rem; }
+    footer { padding: 34px 0; border-top: 1px solid var(--line); color: var(--muted); }
+    .footer-row { width: min(var(--max), calc(100% - 36px)); margin: 0 auto; display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+    .footer-row a { color: var(--accent-dark); font-weight: 750; }
+    @media (max-width: 960px) {
+      nav ul { display: none; }
+      .mobile-toggle { display: inline-flex; }
+      nav[data-open="true"] ul { display: grid; position: absolute; left: 18px; right: 18px; top: 72px; background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 18px; box-shadow: var(--shadow); }
+      .hero-grid, .split, .highlight, .resource-box, .about-grid { grid-template-columns: 1fr; }
+      .cards, .service-grid, .framework { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 680px) {
+      main section { padding: 58px 0; }
+      .hero { padding-top: 62px; }
+      .cards, .service-grid, .framework, .use-cases, .audit-includes, .two-col { grid-template-columns: 1fr; }
+      .hero-card, .surface, .highlight, .resource-box { padding: 24px; }
+      .brand span:last-child { max-width: 170px; font-size: 0.95rem; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header>
+    <div class="nav">
+      <a href="#top" class="brand" aria-label="Home"><span class="brand-mark">TI</span><span>Trauma-Informed Practice Consulting</span></a>
+      <nav id="site-nav" aria-label="Primary navigation" data-open="false">
+        <button class="mobile-toggle" type="button" aria-controls="menu-list" aria-expanded="false">Menu</button>
+        <ul id="menu-list"><li><a href="#who">Who We Serve</a></li><li><a href="#services">Services</a></li><li><a href="#audit">Audit</a></li><li><a href="#approach">Approach</a></li><li><a href="#contact">Contact</a></li></ul>
+      </nav>
+      <a class="button primary" href="#contact">Schedule a call</a>
+    </div>
+  </header>
+  <main id="main">
+    <section class="hero" id="top"><div class="container hero-grid"><div><div class="eyebrow">Practical trauma-informed systems, not checkbox training</div><h1>Build safer, clearer, more trustworthy experiences for patients, clients, and staff.</h1><p class="lede">Trauma-informed training and consulting for healthcare, dental, and service-based teams navigating anxiety, distress, conflict, burnout, emotional labor, and high-stress care environments.</p><div class="hero-actions"><a class="button primary" href="#contact">Schedule a discovery call</a><a class="button secondary" href="#audit">Explore the audit</a></div><div class="logo-strip" aria-label="Service areas"><span>Built for:</span><span class="pill">Dental practices</span><span class="pill">Medical clinics</span><span class="pill">Nonprofits</span><span class="pill">Public-facing teams</span></div></div><aside class="hero-card" aria-labelledby="hero-card-title"><h2 id="hero-card-title">When trauma-informed work becomes practical, teams can:</h2><ul class="check-list"><li><span class="check">✓</span><span>Respond to anxiety, anger, avoidance, and overwhelm with more clarity.</span></li><li><span class="check">✓</span><span>Use communication that increases predictability, dignity, consent, and choice.</span></li><li><span class="check">✓</span><span>Set boundaries without escalating shame or conflict.</span></li><li><span class="check">✓</span><span>Build staff support systems for emotionally demanding work.</span></li></ul></aside></div></section>
+    <section id="problem"><div class="container split"><div><div class="eyebrow">The problem</div><h2>Many teams are trauma-aware. Fewer have trauma-informed systems.</h2><p class="section-lede">Your team may already care deeply about patient or client experience. But without clear practices, staff can be left guessing how to respond to distress, fear, shame, conflict, or overwhelm.</p></div><div class="problem-list"><div class="problem-item"><span class="problem-icon">!</span><span>Patients or clients become anxious, angry, avoidant, tearful, or shut down.</span></div><div class="problem-item"><span class="problem-icon">!</span><span>Front desk and frontline teams carry the hardest interactions without enough support.</span></div><div class="problem-item"><span class="problem-icon">!</span><span>Boundaries, handoffs, and escalation pathways feel unclear or inconsistent.</span></div><div class="problem-item"><span class="problem-icon">!</span><span>Procedures, policies, costs, rules, or forms unintentionally create shame or confusion.</span></div><div class="problem-item"><span class="problem-icon">!</span><span>Leaders want to support staff but need practical tools, not just more awareness.</span></div></div></div></section>
+    <section id="who"><div class="container"><div class="eyebrow">Who we serve</div><h2>Built for teams where trust, safety, and communication matter.</h2><p class="section-lede">The work is especially useful in settings where people may arrive with fear, pain, shame, uncertainty, grief, crisis, or past experiences that shape how they receive care.</p><div class="cards"><article class="card"><span class="tag">Dental</span><h3>Dental practices</h3><p>Reduce patient anxiety, improve chairside communication, and create more predictable, dignity-preserving care experiences.</p></article><article class="card"><span class="tag">Medical</span><h3>Healthcare teams</h3><p>Support consent-centered communication, safer patient interactions, and staff confidence during vulnerable care moments.</p></article><article class="card"><span class="tag">Service</span><h3>Nonprofits and public-facing teams</h3><p>Strengthen boundaries, de-escalation, supervision, and sustainable service delivery for emotionally demanding work.</p></article><article class="card"><span class="tag">Youth</span><h3>Schools and youth-serving organizations</h3><p>Build trauma-informed practices that support students, families, and staff with more consistency and clarity.</p></article><article class="card"><span class="tag">Community</span><h3>Faith and community organizations</h3><p>Support people through grief, crisis, transition, and complex needs without becoming a substitute for therapy.</p></article><article class="card"><span class="tag">Workplace</span><h3>Managers and leaders</h3><p>Help supervisors support staff humanely and appropriately while maintaining role clarity and healthy boundaries.</p></article></div></div></section>
+    <section id="services"><div class="container"><div class="eyebrow">Services</div><h2>Training and consulting that move from awareness to implementation.</h2><div class="service-grid"><article class="service-card"><div class="service-number">1</div><h3>Workshops and team training</h3><p>Practical, role-specific training on trauma-informed communication, boundaries, de-escalation, consent, and patient/client support.</p></article><article class="service-card"><div class="service-number">2</div><h3>Experience audit</h3><p>A focused review of your patient, client, or staff experience to identify where systems support safety, trust, choice, and clarity.</p></article><article class="service-card"><div class="service-number">3</div><h3>Implementation sprint</h3><p>A deeper engagement that turns recommendations into scripts, workflows, supervision practices, and a 30/60/90-day action plan.</p></article><article class="service-card"><div class="service-number">4</div><h3>Ongoing advisory support</h3><p>Continued consultation for leaders and teams working to sustain trauma-informed practices over time.</p></article></div></div></section>
+    <section id="audit"><div class="container"><div class="highlight"><div><div class="eyebrow" style="background: rgba(255,255,255,0.16); color: white; border-color: rgba(255,255,255,0.18);">Signature offer</div><h2>Trauma-Informed Experience Audit</h2><p>The audit helps your team understand how patients, clients, and staff experience your organization from first contact through follow-up. We review communication, forms, workflows, handoffs, boundaries, escalation points, and staff support practices, then provide practical recommendations your team can act on.</p><div class="hero-actions"><a class="button secondary" href="#contact">Ask about an audit</a><a class="button ghost" style="color: white; border-color: rgba(255,255,255,0.7);" href="#resource">Download checklist</a></div></div><div><div class="audit-includes"><div class="mini">Leadership intake</div><div class="mini">Staff pulse survey</div><div class="mini">Document and workflow review</div><div class="mini">Patient/client journey mapping</div><div class="mini">Strengths and gaps summary</div><div class="mini">Practical recommendations</div><div class="mini">30/60/90-day roadmap</div><div class="mini">Leadership debrief</div></div></div></div></div></section>
+    <section id="approach"><div class="container"><div class="eyebrow">Our approach</div><h2>Trauma-informed practice is not just about being kinder. It is about designing better systems.</h2><p class="section-lede">Training works best when it is supported by workflows, supervision, communication tools, leadership alignment, and a clear understanding of what staff should do in difficult moments.</p><div class="framework"><article class="framework-card"><h3>Safety and clarity</h3><p>People need to know what to expect, what choices they have, and what happens next.</p></article><article class="framework-card"><h3>Boundaries with dignity</h3><p>Trauma-informed does not mean boundaryless. Clear limits can increase trust and reduce escalation.</p></article><article class="framework-card"><h3>Systems, not just scripts</h3><p>Scripts help, but durable change requires workflows, supervision, feedback loops, and leadership practices.</p></article></div></div></section>
+    <section id="use-cases"><div class="container"><div class="eyebrow">Use cases</div><h2>What this can look like in practice.</h2><div class="use-cases"><article class="card"><h3>Dental practice</h3><p>A dental team wants to better support anxious patients, reduce shame around delayed care, and create consistent chairside communication practices.</p></article><article class="card"><h3>Medical clinic</h3><p>A clinic wants staff to feel more confident responding to patient distress, fear, frustration, or overwhelm during vulnerable care experiences.</p></article><article class="card"><h3>Service organization</h3><p>A public-facing team wants clearer boundaries, better de-escalation practices, and stronger supervision for staff doing emotionally demanding work.</p></article><article class="card"><h3>Youth-serving team</h3><p>A school or youth program wants to respond to dysregulation and family stress with more consistency and less burnout.</p></article></div></div></section>
+    <section id="resource"><div class="container resource-box"><div><div class="eyebrow" style="background: rgba(255,255,255,0.55);">Free resource</div><h2>Trauma-Informed Practice Starter Checklist</h2><p class="section-lede">A practical self-assessment for healthcare, dental, and service-based teams. Use it to identify where your current practices support safety, trust, choice, clarity, and staff sustainability.</p><p class="note">Tip: In the live version, connect this form to your email platform or Netlify Forms. For now, submissions can be captured by Netlify if deployed with form handling enabled.</p></div><form name="checklist-download" method="POST" data-netlify="true" netlify-honeypot="bot-field"><input type="hidden" name="form-name" value="checklist-download" /><p style="display:none"><label>Don’t fill this out: <input name="bot-field" /></label></p><div class="form-grid"><div><label for="resource-name">Name</label><input id="resource-name" name="name" autocomplete="name" required /></div><div><label for="resource-email">Email</label><input id="resource-email" name="email" type="email" autocomplete="email" required /></div><div><label for="resource-org">Organization / Practice</label><input id="resource-org" name="organization" autocomplete="organization" /></div><button class="button primary" type="submit">Request the checklist</button></div></form></div></section>
+    <section id="about"><div class="container about-grid"><div class="portrait-placeholder">Add consultant photo or simple brand graphic here</div><div><div class="eyebrow">About</div><h2>Clinical insight translated into organizational practice.</h2><p class="section-lede">Founded by a licensed mental health professional, this consulting practice brings trauma-informed insight into organizational settings without providing therapy to staff, patients, or clients. The work focuses on training, systems design, communication, supervision, boundaries, and practical implementation.</p><div class="cards" style="grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 26px;"><article class="card"><h3>Grounded</h3><p>Practical tools for real-world moments, not abstract theory alone.</p></article><article class="card"><h3>Systems-focused</h3><p>Attention to workflows, handoffs, policies, supervision, and communication.</p></article></div><div class="scope" style="margin-top: 22px;"><strong>Scope note:</strong> Services are educational and consultative in nature. They do not constitute psychotherapy, diagnosis, treatment, crisis intervention, clinical supervision, legal advice, or medical advice.</div></div></div></section>
+    <section id="contact"><div class="container split"><div><div class="eyebrow">Next step</div><h2>Ready to make trauma-informed practice more practical?</h2><p class="section-lede">Schedule a discovery conversation to explore whether a workshop, audit, or implementation sprint is the right next step for your team.</p><p class="note">Replace the placeholder email and calendar links with the consultant’s actual contact information before publishing.</p></div><form name="discovery-call" method="POST" data-netlify="true" netlify-honeypot="bot-field"><input type="hidden" name="form-name" value="discovery-call" /><p style="display:none"><label>Don’t fill this out: <input name="bot-field" /></label></p><div class="form-grid"><div class="two-col"><div><label for="name">Name</label><input id="name" name="name" autocomplete="name" required /></div><div><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" required /></div></div><div><label for="organization">Organization / Practice</label><input id="organization" name="organization" autocomplete="organization" /></div><div><label for="sector">What best describes your setting?</label><select id="sector" name="sector"><option>Dental practice</option><option>Medical / healthcare practice</option><option>Nonprofit / service organization</option><option>School / youth-serving organization</option><option>Faith / community organization</option><option>Other</option></select></div><div><label for="message">What are you hoping to improve?</label><textarea id="message" name="message" placeholder="Tell us a little about your team, patients/clients, and what prompted your interest."></textarea></div><button class="button primary" type="submit">Request a discovery call</button><p class="note">You can also replace this form with a Calendly, TidyCal, or HubSpot meeting link.</p></div></form></div></section>
+  </main>
+  <footer><div class="footer-row"><div>© <span id="year"></span> Trauma-Informed Practice Consulting. All rights reserved.</div><div><a href="#top">Back to top</a></div></div></footer>
+  <script>
+    const nav = document.querySelector('#site-nav');
+    const toggle = document.querySelector('.mobile-toggle');
+    const year = document.querySelector('#year');
+    year.textContent = new Date().getFullYear();
+    toggle?.addEventListener('click', () => {
+      const isOpen = nav.getAttribute('data-open') === 'true';
+      nav.setAttribute('data-open', String(!isOpen));
+      toggle.setAttribute('aria-expanded', String(!isOpen));
+    });
+    document.querySelectorAll('nav a').forEach((link) => {
+      link.addEventListener('click', () => {
+        nav.setAttribute('data-open', 'false');
+        toggle?.setAttribute('aria-expanded', 'false');
+      });
+    });
+  </script>
+</body>
+</html>
